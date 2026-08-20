@@ -1,65 +1,126 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>TuScript - Roblox Scripts</title>
 
+
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         body {
+
             font-family: Arial, sans-serif;
+
             background: #0b0b0f;
+
             color: white;
+
             min-height: 100vh;
+
         }
+
 
         /* ================= HEADER ================= */
 
         header {
+
             padding: 16px 20px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             border-bottom: 1px solid #222;
 
             position: sticky;
+
             top: 0;
 
             background: rgba(11, 11, 15, 0.95);
+
             backdrop-filter: blur(10px);
 
             z-index: 10;
+
         }
+
 
         .logo {
+
             font-size: 22px;
+
             font-weight: 800;
+
         }
+
 
         .logo span {
+
             color: #7c5cff;
+
         }
 
+
+        /* ================= MENU BUTTON ================= */
+
         .menu {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
             font-size: 25px;
+
             cursor: pointer;
+
             color: #aaa;
+
+            border-radius: 10px;
+
+            transition: 0.2s;
+
         }
+
+
+        .menu:hover {
+
+            background: #18181f;
+
+            color: white;
+
+        }
+
 
         /* ================= TIME BOX ================= */
 
         .time-box {
+
             position: fixed;
 
             top: 70px;
+
             left: 15px;
 
             background: rgba(21, 21, 27, 0.95);
@@ -80,9 +141,12 @@
             z-index: 20;
 
             min-width: 105px;
+
         }
 
+
         .time-greeting {
+
             font-size: 11px;
 
             color: #9b87ff;
@@ -90,25 +154,264 @@
             font-weight: bold;
 
             margin-bottom: 3px;
+
         }
 
+
         .time-clock {
+
             font-size: 13px;
 
             color: #aaa;
 
             font-weight: 600;
+
         }
+
+
+        /* =====================================================
+           SIDE MENU
+           ===================================================== */
+
+        .menu-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            backdrop-filter: blur(3px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.25s;
+
+            z-index: 99;
+
+        }
+
+
+        .menu-overlay.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+        }
+
+
+        .side-menu {
+
+            position: fixed;
+
+            top: 0;
+
+            right: 0;
+
+            width: 280px;
+
+            height: 100vh;
+
+            background: #111116;
+
+            border-left: 1px solid #29292f;
+
+            box-shadow:
+                -10px 0 40px rgba(0, 0, 0, 0.45);
+
+            transform: translateX(100%);
+
+            transition: transform 0.3s ease;
+
+            z-index: 100;
+
+            padding: 20px;
+
+            overflow-y: auto;
+
+        }
+
+
+        .side-menu.active {
+
+            transform: translateX(0);
+
+        }
+
+
+        /* ================= SIDE MENU HEADER ================= */
+
+        .side-menu-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-bottom: 18px;
+
+        }
+
+
+        .side-logo {
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .side-logo span {
+
+            color: #7c5cff;
+
+        }
+
+
+        .close-menu {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 10px;
+
+            color: #aaa;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .close-menu:hover {
+
+            background: #1c1c24;
+
+            color: white;
+
+        }
+
+
+        /* ================= MENU LINE ================= */
+
+        .menu-line {
+
+            height: 1px;
+
+            background: #29292f;
+
+            margin: 5px 0 12px;
+
+        }
+
+
+        /* ================= MENU ITEM ================= */
+
+        .menu-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            width: 100%;
+
+            padding: 13px 12px;
+
+            margin: 4px 0;
+
+            border-radius: 11px;
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+
+        }
+
+
+        .menu-item:hover {
+
+            background: #1c1c25;
+
+            color: white;
+
+            transform: translateX(3px);
+
+        }
+
+
+        .menu-item span:first-child {
+
+            width: 24px;
+
+            text-align: center;
+
+            font-size: 18px;
+
+        }
+
+
+        /* ================= MENU FOOTER ================= */
+
+        .menu-footer {
+
+            text-align: center;
+
+            color: #7c5cff;
+
+            font-size: 13px;
+
+            margin-top: 20px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .menu-footer span {
+
+            color: #666;
+
+            font-size: 11px;
+
+        }
+
 
         /* ================= PROFILE ================= */
 
         .profile {
+
             text-align: center;
+
             padding: 45px 20px 20px;
+
         }
 
+
         .avatar {
+
             width: 100px;
+
             height: 100px;
 
             object-fit: cover;
@@ -121,53 +424,88 @@
                 0 0 25px rgba(124, 92, 255, 0.35);
 
             margin-bottom: 15px;
+
         }
+
 
         .profile h1 {
+
             font-size: 28px;
+
             margin-bottom: 6px;
+
         }
+
 
         .profile h1 span {
+
             color: #7c5cff;
+
         }
 
+
         .profile p {
+
             color: #888;
+
             font-size: 14px;
+
         }
+
 
         /* ================= HERO ================= */
 
         .hero {
+
             text-align: center;
+
             padding: 25px 20px 20px;
+
         }
+
 
         .hero h2 {
+
             font-size: 30px;
+
             margin-bottom: 10px;
+
         }
+
 
         .hero h2 span {
+
             color: #7c5cff;
+
         }
 
+
         .hero p {
+
             color: #999;
+
             font-size: 14px;
+
             line-height: 1.6;
+
         }
+
 
         /* ================= SEARCH ================= */
 
         .search-box {
+
             max-width: 600px;
+
             margin: 20px auto 25px;
+
             padding: 0 20px;
+
         }
 
+
         .search-box input {
+
             width: 100%;
 
             padding: 16px 20px;
@@ -183,15 +521,21 @@
             font-size: 15px;
 
             outline: none;
+
         }
 
+
         .search-box input:focus {
+
             border-color: #7c5cff;
+
         }
+
 
         /* ================= GAMES ================= */
 
         .games {
+
             max-width: 1000px;
 
             margin: 10px auto;
@@ -204,11 +548,14 @@
                 repeat(auto-fit, minmax(260px, 1fr));
 
             gap: 18px;
+
         }
+
 
         /* ================= CARD ================= */
 
         .card {
+
             background: #15151b;
 
             border: 1px solid #29292f;
@@ -218,15 +565,21 @@
             overflow: hidden;
 
             transition: 0.2s;
+
         }
 
+
         .card:hover {
+
             transform: translateY(-4px);
 
             border-color: #7c5cff;
+
         }
 
+
         .game-image {
+
             height: 160px;
 
             background:
@@ -239,21 +592,32 @@
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             font-size: 55px;
+
         }
+
 
         .card-content {
+
             padding: 18px;
+
         }
+
 
         .card h2 {
+
             font-size: 20px;
+
             margin-bottom: 8px;
+
         }
 
+
         .card p {
+
             color: #999;
 
             font-size: 14px;
@@ -261,11 +625,14 @@
             line-height: 1.5;
 
             min-height: 42px;
+
         }
+
 
         /* ================= TAG ================= */
 
         .tag {
+
             display: inline-block;
 
             margin-top: 12px;
@@ -281,11 +648,14 @@
             font-size: 12px;
 
             font-weight: bold;
+
         }
+
 
         /* ================= GET SCRIPT ================= */
 
         .get-script {
+
             display: block;
 
             width: 100%;
@@ -307,15 +677,21 @@
             font-weight: bold;
 
             transition: 0.2s;
+
         }
 
+
         .get-script:hover {
+
             background: #6848ed;
+
         }
+
 
         /* ================= NO RESULTS ================= */
 
         .no-results {
+
             display: none;
 
             text-align: center;
@@ -325,11 +701,14 @@
             grid-column: 1 / -1;
 
             padding: 30px;
+
         }
+
 
         /* ================= FOOTER ================= */
 
         footer {
+
             text-align: center;
 
             padding: 25px;
@@ -339,55 +718,97 @@
             border-top: 1px solid #222;
 
             font-size: 13px;
+
         }
+
 
         /* ================= MOBILE ================= */
 
         @media (max-width: 600px) {
 
             .profile {
+
                 padding-top: 35px;
+
             }
+
 
             .avatar {
+
                 width: 90px;
+
                 height: 90px;
+
             }
+
 
             .profile h1 {
+
                 font-size: 25px;
+
             }
+
 
             .hero h2 {
+
                 font-size: 27px;
+
             }
+
 
             .games {
+
                 grid-template-columns: 1fr;
+
             }
+
 
             .game-image {
+
                 height: 150px;
+
             }
 
+
             .time-box {
+
                 top: 65px;
+
                 left: 10px;
 
                 padding: 7px 10px;
 
                 min-width: 100px;
+
             }
+
 
             .time-greeting {
+
                 font-size: 10px;
+
             }
 
+
             .time-clock {
+
                 font-size: 12px;
+
             }
+
+
+            .side-menu {
+
+                width: 82%;
+
+                max-width: 320px;
+
+            }
+
         }
+
     </style>
+
 </head>
 
 
@@ -402,11 +823,153 @@
         Tu<span>Script</span>
     </div>
 
-    <div class="menu">
+
+    <div
+        class="menu"
+        onclick="toggleMenu()"
+    >
         ☰
     </div>
 
 </header>
+
+
+<!-- ================= SIDE MENU ================= -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="closeMenu()"
+></div>
+
+
+<div
+    class="side-menu"
+    id="sideMenu"
+>
+
+
+    <div class="side-menu-header">
+
+        <div class="side-logo">
+            ⚡ Tu<span>Script</span>
+        </div>
+
+
+        <div
+            class="close-menu"
+            onclick="closeMenu()"
+        >
+            ✕
+        </div>
+
+    </div>
+
+
+    <div class="menu-line"></div>
+
+
+    <!-- HOME -->
+
+    <a
+        href="#"
+        class="menu-item"
+        onclick="goHome()"
+    >
+        <span>🏠</span>
+        <span>Home</span>
+    </a>
+
+
+    <!-- SCRIPTS -->
+
+    <a
+        href="#games"
+        class="menu-item"
+        onclick="closeMenu()"
+    >
+        <span>📜</span>
+        <span>Scripts</span>
+    </a>
+
+
+    <!-- EXPLOITS -->
+
+    <a
+        href="#exploits"
+        class="menu-item"
+        onclick="closeMenu()"
+    >
+        <span>💣</span>
+        <span>Exploits</span>
+    </a>
+
+
+    <!-- SEARCH -->
+
+    <a
+        href="#search"
+        class="menu-item"
+        onclick="openSearch()"
+    >
+        <span>🔎</span>
+        <span>Search</span>
+    </a>
+
+
+    <!-- YOUTUBE -->
+
+    <a
+        href="https://www.youtube.com/"
+        target="_blank"
+        rel="noopener"
+        class="menu-item"
+    >
+        <span>▶️</span>
+        <span>YouTube</span>
+    </a>
+
+
+    <!-- DISCORD -->
+
+    <a
+        href="#"
+        class="menu-item"
+        onclick="closeMenu()"
+    >
+        <span>💬</span>
+        <span>Discord</span>
+    </a>
+
+
+    <!-- ABOUT -->
+
+    <a
+        href="#about"
+        class="menu-item"
+        onclick="showAbout()"
+    >
+        <span>ℹ️</span>
+        <span>About</span>
+    </a>
+
+
+    <div class="menu-line"></div>
+
+
+    <div class="menu-footer">
+
+        ⚡ TuScript
+
+        <br>
+
+        <span>
+            Roblox Script Developer
+        </span>
+
+    </div>
+
+</div>
 
 
 <!-- ================= TIME ================= -->
@@ -417,8 +980,9 @@
         class="time-greeting"
         id="greeting"
     >
-        Good Morning
+        🌅 Good Morning
     </div>
+
 
     <div
         class="time-clock"
@@ -440,9 +1004,11 @@
         alt="TuScript Avatar"
     >
 
+
     <h1>
         Tu<span>Script</span>
     </h1>
+
 
     <p>
         Roblox Script Developer
@@ -459,6 +1025,7 @@
         Roblox <span>Scripts</span>
     </h2>
 
+
     <p>
         Latest Roblox scripts, updates and tools.
         <br>
@@ -470,7 +1037,10 @@
 
 <!-- ================= SEARCH ================= -->
 
-<div class="search-box">
+<div
+    class="search-box"
+    id="searchBox"
+>
 
     <input
         type="text"
@@ -484,10 +1054,13 @@
 
 <!-- ================= GAMES ================= -->
 
-<section class="games" id="games">
+<section
+    class="games"
+    id="games"
+>
 
 
-    <!-- Blox Fruits -->
+    <!-- ================= BLOX FRUITS ================= -->
 
     <div
         class="card"
@@ -498,20 +1071,24 @@
             🍎
         </div>
 
+
         <div class="card-content">
 
             <h2>
                 Blox Fruits
             </h2>
 
+
             <p>
                 Auto Farm, Auto Level,
                 Race V4 and more.
             </p>
 
+
             <span class="tag">
                 NO KEY
             </span>
+
 
             <a
                 class="get-script"
@@ -527,7 +1104,7 @@
     </div>
 
 
-    <!-- Greedy Growers -->
+    <!-- ================= GREEDY GROWERS ================= -->
 
     <div
         class="card"
@@ -538,20 +1115,24 @@
             🌱
         </div>
 
+
         <div class="card-content">
 
             <h2>
                 Greedy Growers
             </h2>
 
+
             <p>
                 Auto Plant, Auto Sell,
                 Lightning Alert and more.
             </p>
 
+
             <span class="tag">
                 NO KEY
             </span>
+
 
             <a
                 class="get-script"
@@ -567,7 +1148,7 @@
     </div>
 
 
-    <!-- Steal An Egg -->
+    <!-- ================= STEAL AN EGG ================= -->
 
     <div
         class="card"
@@ -578,20 +1159,24 @@
             🥚
         </div>
 
+
         <div class="card-content">
 
             <h2>
                 Steal An Egg
             </h2>
 
+
             <p>
                 Auto Collect, Auto Sell
                 and automatic farming.
             </p>
 
+
             <span class="tag">
                 NO KEY
             </span>
+
 
             <a
                 class="get-script"
@@ -607,7 +1192,7 @@
     </div>
 
 
-    <!-- No Results -->
+    <!-- ================= NO RESULTS ================= -->
 
     <div
         class="no-results"
@@ -616,6 +1201,89 @@
         Không tìm thấy game.
     </div>
 
+
+</section>
+
+
+<!-- ================= EXPLOITS ================= -->
+
+<section
+    id="exploits"
+    style="
+        max-width:1000px;
+        margin:20px auto;
+        padding:0 20px 50px;
+    "
+>
+
+    <div
+        style="
+            background:#15151b;
+            border:1px solid #29292f;
+            border-radius:18px;
+            padding:25px;
+            text-align:center;
+        "
+    >
+
+        <h2 style="margin-bottom:10px;">
+            💣 Exploits
+        </h2>
+
+
+        <p
+            style="
+                color:#888;
+                font-size:14px;
+            "
+        >
+            Exploit tools and resources will be
+            available here soon.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+    id="about"
+    style="
+        max-width:1000px;
+        margin:20px auto;
+        padding:0 20px 50px;
+    "
+>
+
+    <div
+        style="
+            background:#15151b;
+            border:1px solid #29292f;
+            border-radius:18px;
+            padding:25px;
+            text-align:center;
+        "
+    >
+
+        <h2 style="margin-bottom:10px;">
+            ℹ️ About TuScript
+        </h2>
+
+
+        <p
+            style="
+                color:#888;
+                font-size:14px;
+                line-height:1.7;
+            "
+        >
+            TuScript is a Roblox script website
+            providing scripts, updates and tools.
+        </p>
+
+    </div>
 
 </section>
 
@@ -634,9 +1302,10 @@
 <audio id="bgMusic"></audio>
 
 
-<!-- ================= SCRIPT ================= -->
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
+
 
 /* =====================================================
    SEARCH
@@ -691,6 +1360,130 @@ function searchGames() {
 
 
 /* =====================================================
+   SIDE MENU
+   ===================================================== */
+
+function toggleMenu() {
+
+    document
+        .getElementById("sideMenu")
+        .classList.toggle("active");
+
+
+    document
+        .getElementById("menuOverlay")
+        .classList.toggle("active");
+
+}
+
+
+function closeMenu() {
+
+    document
+        .getElementById("sideMenu")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("menuOverlay")
+        .classList.remove("active");
+
+}
+
+
+/* ================= HOME ================= */
+
+function goHome() {
+
+    closeMenu();
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function openSearch() {
+
+    closeMenu();
+
+
+    setTimeout(() => {
+
+        const search =
+            document.getElementById("search");
+
+
+        search.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+
+        setTimeout(() => {
+
+            search.focus();
+
+        }, 400);
+
+
+    }, 300);
+
+}
+
+
+/* ================= ABOUT ================= */
+
+function showAbout() {
+
+    closeMenu();
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("about")
+            .scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+    }, 300);
+
+}
+
+
+/* ================= ESC ================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
    WORLD TIME / GREETING
    ===================================================== */
 
@@ -705,52 +1498,65 @@ function updateTime() {
 
     if (hour >= 5 && hour < 12) {
 
-        greeting = "☀️ Good Morning";
+        greeting = "🌅 Good Morning";
 
-    } else if (hour >= 12 && hour < 18) {
+    }
 
-        greeting = "🌤️ Good Afternoon";
+    else if (hour >= 12 && hour < 18) {
 
-    } else if (hour >= 18 && hour < 22) {
+        greeting = "☀️ Good Afternoon";
 
-        greeting = "⛅️ Good Evening";
+    }
 
-    } else {
+    else if (hour >= 18 && hour < 22) {
+
+        greeting = "🌇 Good Evening";
+
+    }
+
+    else {
 
         greeting = "🌙 Good Night";
 
     }
 
 
-    // Lời chào
-    document.getElementById("greeting").textContent =
-        greeting;
+    document
+        .getElementById("greeting")
+        .textContent = greeting;
 
 
-    // Giờ địa phương của người truy cập
     const time =
+
         new Intl.DateTimeFormat(
+
             undefined,
+
             {
+
                 hour: "2-digit",
+
                 minute: "2-digit",
+
                 second: "2-digit",
+
                 hour12: false
+
             }
+
         ).format(now);
 
 
-    document.getElementById("clock").textContent =
-        time;
+    document
+        .getElementById("clock")
+        .textContent = time;
 
 }
 
 
-// Cập nhật ngay
 updateTime();
 
 
-// Cập nhật mỗi giây
 setInterval(
     updateTime,
     1000
@@ -778,11 +1584,11 @@ const playlist = [
 
 let currentSong = -1;
 
+
 const music =
     document.getElementById("bgMusic");
 
 
-// Âm lượng 15%
 music.volume = 0.15;
 
 
@@ -797,12 +1603,17 @@ function playRandomSong() {
 
         nextSong =
             Math.floor(
-                Math.random() * playlist.length
+                Math.random() *
+                playlist.length
             );
 
-    } while (
+    }
+
+    while (
+
         playlist.length > 1 &&
         nextSong === currentSong
+
     );
 
 
@@ -827,12 +1638,15 @@ function playRandomSong() {
 /* ================= SONG ENDED ================= */
 
 music.addEventListener(
+
     "ended",
+
     function() {
 
         playRandomSong();
 
     }
+
 );
 
 
@@ -857,17 +1671,22 @@ function startMusic() {
 
 
     document.removeEventListener(
+
         "pointerdown",
+
         startMusic
+
     );
 
 }
 
 
-// Chạm / click bất kỳ đâu
 document.addEventListener(
+
     "pointerdown",
+
     startMusic
+
 );
 
 </script>
