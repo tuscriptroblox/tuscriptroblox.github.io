@@ -336,7 +336,7 @@
 <header>
 
     <div class="logo">
-         Tu<span>Script</span>
+        Tu<span>Script</span>
     </div>
 
     <div class="menu">
@@ -545,6 +545,11 @@
 </footer>
 
 
+<!-- ================= BACKGROUND MUSIC ================= -->
+
+<audio id="bgMusic"></audio>
+
+
 <!-- ================= SEARCH SCRIPT ================= -->
 
 <script>
@@ -595,6 +600,111 @@ function searchGames() {
             : "none";
 
 }
+
+
+/* =====================================================
+   BACKGROUND LOFI MUSIC
+   ===================================================== */
+
+const playlist = [
+
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/alex-morgan-lofi-chill-vlog-beats-573883.mp3",
+
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/alex-morgan-lofi-restaurant-568157.mp3",
+
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/alex-morgan-lofi-study-session-568160.mp3",
+
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/alex-morgan-lofi-sunny-cafe-568156.mp3",
+
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/prettyjohn1-lofi-lofi-music-587176.mp3"
+
+];
+
+
+let currentSong = -1;
+
+const music =
+    document.getElementById("bgMusic");
+
+
+// Âm lượng 15%
+music.volume = 0.15;
+
+
+// ================= RANDOM SONG =================
+
+function playRandomSong() {
+
+    let nextSong;
+
+    do {
+
+        nextSong =
+            Math.floor(
+                Math.random() * playlist.length
+            );
+
+    } while (
+        playlist.length > 1 &&
+        nextSong === currentSong
+    );
+
+
+    currentSong = nextSong;
+
+    music.src = playlist[currentSong];
+
+    music.play().catch(() => {
+
+        console.log(
+            "Autoplay bị trình duyệt chặn."
+        );
+
+    });
+
+}
+
+
+// ================= SONG ENDED =================
+
+music.addEventListener(
+    "ended",
+    function() {
+
+        playRandomSong();
+
+    }
+);
+
+
+// ================= START AFTER 3 SECONDS =================
+
+setTimeout(() => {
+
+    playRandomSong();
+
+}, 3000);
+
+
+// ================= MOBILE FALLBACK =================
+
+// Nếu trình duyệt chặn autoplay,
+// lần đầu người dùng chạm vào trang
+// sẽ bắt đầu phát nhạc.
+
+document.addEventListener(
+    "click",
+    function startMusic() {
+
+        music.play().catch(() => {});
+
+        document.removeEventListener(
+            "click",
+            startMusic
+        );
+
+    }
+);
 
 </script>
 
