@@ -54,6 +54,52 @@
             color: #aaa;
         }
 
+        /* ================= TIME BOX ================= */
+
+        .time-box {
+            position: fixed;
+
+            top: 70px;
+            right: 15px;
+
+            background: rgba(21, 21, 27, 0.95);
+
+            border: 1px solid #29292f;
+
+            border-radius: 12px;
+
+            padding: 8px 12px;
+
+            text-align: center;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.3);
+
+            z-index: 20;
+
+            min-width: 105px;
+        }
+
+        .time-greeting {
+            font-size: 11px;
+
+            color: #9b87ff;
+
+            font-weight: bold;
+
+            margin-bottom: 3px;
+        }
+
+        .time-clock {
+            font-size: 13px;
+
+            color: #aaa;
+
+            font-weight: 600;
+        }
+
         /* ================= PROFILE ================= */
 
         .profile {
@@ -323,6 +369,23 @@
             .game-image {
                 height: 150px;
             }
+
+            .time-box {
+                top: 65px;
+                right: 10px;
+
+                padding: 7px 10px;
+
+                min-width: 100px;
+            }
+
+            .time-greeting {
+                font-size: 10px;
+            }
+
+            .time-clock {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -344,6 +407,27 @@
     </div>
 
 </header>
+
+
+<!-- ================= TIME ================= -->
+
+<div class="time-box">
+
+    <div
+        class="time-greeting"
+        id="greeting"
+    >
+        Good Morning
+    </div>
+
+    <div
+        class="time-clock"
+        id="clock"
+    >
+        00:00:00
+    </div>
+
+</div>
 
 
 <!-- ================= PROFILE ================= -->
@@ -550,9 +634,13 @@
 <audio id="bgMusic"></audio>
 
 
-<!-- ================= SEARCH SCRIPT ================= -->
+<!-- ================= SCRIPT ================= -->
 
 <script>
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
 
 function searchGames() {
 
@@ -603,6 +691,73 @@ function searchGames() {
 
 
 /* =====================================================
+   WORLD TIME / GREETING
+   ===================================================== */
+
+function updateTime() {
+
+    const now = new Date();
+
+    const hour = now.getHours();
+
+    let greeting;
+
+
+    if (hour >= 5 && hour < 12) {
+
+        greeting = "☀️ Good Morning";
+
+    } else if (hour >= 12 && hour < 18) {
+
+        greeting = "🌤️ Good Afternoon";
+
+    } else if (hour >= 18 && hour < 22) {
+
+        greeting = "⛅️ Good Evening";
+
+    } else {
+
+        greeting = "🌙 Good Night";
+
+    }
+
+
+    // Lời chào
+    document.getElementById("greeting").textContent =
+        greeting;
+
+
+    // Giờ địa phương của người truy cập
+    const time =
+        new Intl.DateTimeFormat(
+            undefined,
+            {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false
+            }
+        ).format(now);
+
+
+    document.getElementById("clock").textContent =
+        time;
+
+}
+
+
+// Cập nhật ngay
+updateTime();
+
+
+// Cập nhật mỗi giây
+setInterval(
+    updateTime,
+    1000
+);
+
+
+/* =====================================================
    BACKGROUND LOFI MUSIC
    ===================================================== */
 
@@ -631,11 +786,12 @@ const music =
 music.volume = 0.15;
 
 
-// ================= RANDOM SONG =================
+/* ================= RANDOM SONG ================= */
 
 function playRandomSong() {
 
     let nextSong;
+
 
     do {
 
@@ -652,7 +808,10 @@ function playRandomSong() {
 
     currentSong = nextSong;
 
-    music.src = playlist[currentSong];
+
+    music.src =
+        playlist[currentSong];
+
 
     music.play().catch(() => {
 
@@ -665,7 +824,7 @@ function playRandomSong() {
 }
 
 
-// ================= SONG ENDED =================
+/* ================= SONG ENDED ================= */
 
 music.addEventListener(
     "ended",
@@ -677,7 +836,7 @@ music.addEventListener(
 );
 
 
-// ================= START AFTER 3 SECONDS =================
+/* ================= START AFTER 3 SECONDS ================= */
 
 setTimeout(() => {
 
@@ -686,13 +845,7 @@ setTimeout(() => {
 }, 3000);
 
 
-// ================= MOBILE FALLBACK =================
-
-// Nếu trình duyệt chặn autoplay,
-// lần đầu người dùng chạm vào trang
-// sẽ bắt đầu phát nhạc.
-
-// ================= TOUCH / CLICK TO START =================
+/* ================= TOUCH / CLICK ================= */
 
 function startMusic() {
 
@@ -702,6 +855,7 @@ function startMusic() {
 
     }
 
+
     document.removeEventListener(
         "pointerdown",
         startMusic
@@ -710,7 +864,7 @@ function startMusic() {
 }
 
 
-// Chạm / bấm bất kỳ đâu trên trang
+// Chạm / click bất kỳ đâu
 document.addEventListener(
     "pointerdown",
     startMusic
