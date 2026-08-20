@@ -616,7 +616,7 @@ const playlist = [
 
     "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/alex-morgan-lofi-sunny-cafe-568156.mp3",
 
-    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/prettyjohn1-lofi-lofi-music-587176.mp3"
+    "https://raw.githubusercontent.com/tuscriptroblox/tuscriptroblox.github.io/refs/heads/main/fassounds-good-night-lofi-cozy-chill-music-160166.mp3"
 
 ];
 
@@ -692,18 +692,28 @@ setTimeout(() => {
 // lần đầu người dùng chạm vào trang
 // sẽ bắt đầu phát nhạc.
 
-document.addEventListener(
-    "click",
-    function startMusic() {
+// ================= TOUCH / CLICK TO START =================
+
+function startMusic() {
+
+    if (music.paused) {
 
         music.play().catch(() => {});
 
-        document.removeEventListener(
-            "click",
-            startMusic
-        );
-
     }
+
+    document.removeEventListener(
+        "pointerdown",
+        startMusic
+    );
+
+}
+
+
+// Chạm / bấm bất kỳ đâu trên trang
+document.addEventListener(
+    "pointerdown",
+    startMusic
 );
 
 </script>
