@@ -24,150 +24,93 @@
 
 
         body {
-
             font-family: Arial, sans-serif;
-
             background: #0b0b0f;
-
             color: white;
-
             min-height: 100vh;
-
         }
 
 
         /* ================= HEADER ================= */
 
         header {
-
             padding: 16px 20px;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             border-bottom: 1px solid #222;
-
             position: sticky;
-
             top: 0;
-
             background: rgba(11, 11, 15, 0.95);
-
             backdrop-filter: blur(10px);
-
             z-index: 10;
-
         }
 
 
         .logo {
-
             font-size: 22px;
-
             font-weight: 800;
-
         }
 
 
         .logo span {
-
             color: #7c5cff;
-
         }
 
 
         /* ================= MENU BUTTON ================= */
 
         .menu {
-
             width: 40px;
-
             height: 40px;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             font-size: 25px;
-
             cursor: pointer;
-
             color: #aaa;
-
             border-radius: 10px;
-
             transition: 0.2s;
-
         }
 
 
         .menu:hover {
-
             background: #18181f;
-
             color: white;
-
         }
 
 
         /* ================= TIME BOX ================= */
 
         .time-box {
-
             position: fixed;
-
             top: 70px;
-
             left: 15px;
-
             background: rgba(21, 21, 27, 0.95);
-
             border: 1px solid #29292f;
-
             border-radius: 12px;
-
             padding: 8px 12px;
-
             text-align: center;
-
             backdrop-filter: blur(10px);
-
             box-shadow:
                 0 5px 20px rgba(0, 0, 0, 0.3);
-
             z-index: 20;
-
             min-width: 105px;
-
         }
 
 
         .time-greeting {
-
             font-size: 11px;
-
             color: #9b87ff;
-
             font-weight: bold;
-
             margin-bottom: 3px;
-
         }
 
 
         .time-clock {
-
             font-size: 13px;
-
             color: #aaa;
-
             font-weight: 600;
-
         }
 
 
@@ -176,412 +119,249 @@
            ===================================================== */
 
         .menu-overlay {
-
             position: fixed;
-
             inset: 0;
-
             background: rgba(0, 0, 0, 0.55);
-
             backdrop-filter: blur(3px);
-
             opacity: 0;
-
             visibility: hidden;
-
             transition: 0.25s;
-
             z-index: 99;
-
         }
 
 
         .menu-overlay.active {
-
             opacity: 1;
-
             visibility: visible;
-
         }
 
 
         .side-menu {
-
             position: fixed;
-
             top: 0;
-
             right: 0;
-
             width: 280px;
-
             height: 100vh;
-
             background: #111116;
-
             border-left: 1px solid #29292f;
-
             box-shadow:
                 -10px 0 40px rgba(0, 0, 0, 0.45);
-
             transform: translateX(100%);
-
             transition: transform 0.3s ease;
-
             z-index: 100;
-
             padding: 20px;
-
             overflow-y: auto;
-
         }
 
 
         .side-menu.active {
-
             transform: translateX(0);
-
         }
 
 
         /* ================= SIDE MENU HEADER ================= */
 
         .side-menu-header {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             padding-bottom: 18px;
-
         }
 
 
         .side-logo {
-
             font-size: 20px;
-
             font-weight: 800;
-
         }
 
 
         .side-logo span {
-
             color: #7c5cff;
-
         }
 
 
         .close-menu {
-
             width: 38px;
-
             height: 38px;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             border-radius: 10px;
-
             color: #aaa;
-
             font-size: 20px;
-
             cursor: pointer;
-
             transition: 0.2s;
-
         }
 
 
         .close-menu:hover {
-
             background: #1c1c24;
-
             color: white;
-
         }
 
 
         /* ================= MENU LINE ================= */
 
         .menu-line {
-
             height: 1px;
-
             background: #29292f;
-
             margin: 5px 0 12px;
-
         }
 
 
         /* ================= MENU ITEM ================= */
 
         .menu-item {
-
             display: flex;
-
             align-items: center;
-
             gap: 13px;
-
             width: 100%;
-
             padding: 13px 12px;
-
             margin: 4px 0;
-
             border-radius: 11px;
-
             color: #ddd;
-
             text-decoration: none;
-
             font-size: 15px;
-
             transition: 0.2s;
-
         }
 
 
         .menu-item:hover {
-
             background: #1c1c25;
-
             color: white;
-
             transform: translateX(3px);
-
         }
 
 
         .menu-item span:first-child {
-
             width: 24px;
-
             text-align: center;
-
             font-size: 18px;
-
-        }
-
-
-        /* ================= MENU FOOTER ================= */
-
-        .menu-footer {
-
-            text-align: center;
-
-            color: #7c5cff;
-
-            font-size: 13px;
-
-            margin-top: 20px;
-
-            line-height: 1.8;
-
-        }
-
-
-        .menu-footer span {
-
-            color: #666;
-
-            font-size: 11px;
-
         }
 
 
         /* ================= PROFILE ================= */
 
         .profile {
-
             text-align: center;
-
             padding: 45px 20px 20px;
-
         }
 
 
         .avatar {
-
             width: 100px;
-
             height: 100px;
-
             object-fit: cover;
-
             border-radius: 50%;
-
             border: 3px solid #7c5cff;
-
             box-shadow:
                 0 0 25px rgba(124, 92, 255, 0.35);
-
             margin-bottom: 15px;
-
         }
 
 
         .profile h1 {
-
             font-size: 28px;
-
             margin-bottom: 6px;
-
         }
 
 
         .profile h1 span {
-
             color: #7c5cff;
-
         }
 
 
         .profile p {
-
             color: #888;
-
             font-size: 14px;
-
         }
 
 
         /* ================= HERO ================= */
 
         .hero {
-
             text-align: center;
-
             padding: 25px 20px 20px;
-
         }
 
 
         .hero h2 {
-
             font-size: 30px;
-
             margin-bottom: 10px;
-
         }
 
 
         .hero h2 span {
-
             color: #7c5cff;
-
         }
 
 
         .hero p {
-
             color: #999;
-
             font-size: 14px;
-
             line-height: 1.6;
-
         }
 
 
         /* ================= SEARCH ================= */
 
         .search-box {
-
             max-width: 600px;
-
             margin: 20px auto 25px;
-
             padding: 0 20px;
-
         }
 
 
         .search-box input {
-
             width: 100%;
-
             padding: 16px 20px;
-
             border-radius: 14px;
-
             border: 1px solid #29292f;
-
             background: #15151b;
-
             color: white;
-
             font-size: 15px;
-
             outline: none;
-
         }
 
 
         .search-box input:focus {
-
             border-color: #7c5cff;
-
         }
 
 
         /* ================= GAMES ================= */
 
         .games {
-
             max-width: 1000px;
-
             margin: 10px auto;
-
             padding: 0 20px 50px;
-
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(260px, 1fr));
-
             gap: 18px;
-
         }
 
 
         /* ================= CARD ================= */
 
         .card {
-
             background: #15151b;
-
             border: 1px solid #29292f;
-
             border-radius: 18px;
-
             overflow: hidden;
-
             transition: 0.2s;
-
         }
 
 
         .card:hover {
-
             transform: translateY(-4px);
-
             border-color: #7c5cff;
-
         }
 
 
-        .game-image {
+        /* ================= GAME IMAGE ================= */
 
+        .game-image {
             height: 160px;
 
             background:
@@ -599,128 +379,94 @@
 
             font-size: 55px;
 
+            overflow: hidden;
+        }
+
+
+        /* ẢNH GAME */
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
 
         .card-content {
-
             padding: 18px;
-
         }
 
 
         .card h2 {
-
             font-size: 20px;
-
             margin-bottom: 8px;
-
         }
 
 
         .card p {
-
             color: #999;
-
             font-size: 14px;
-
             line-height: 1.5;
-
             min-height: 42px;
-
         }
 
 
         /* ================= TAG ================= */
 
         .tag {
-
             display: inline-block;
-
             margin-top: 12px;
-
             padding: 5px 9px;
-
             background: #211c3b;
-
             color: #9b87ff;
-
             border-radius: 7px;
-
             font-size: 12px;
-
             font-weight: bold;
-
         }
 
 
         /* ================= GET SCRIPT ================= */
 
         .get-script {
-
             display: block;
-
             width: 100%;
-
             margin-top: 15px;
-
             padding: 13px;
-
             border-radius: 11px;
-
             background: #7c5cff;
-
             color: white;
-
             text-decoration: none;
-
             text-align: center;
-
             font-weight: bold;
-
             transition: 0.2s;
-
         }
 
 
         .get-script:hover {
-
             background: #6848ed;
-
         }
 
 
         /* ================= NO RESULTS ================= */
 
         .no-results {
-
             display: none;
-
             text-align: center;
-
             color: #777;
-
             grid-column: 1 / -1;
-
             padding: 30px;
-
         }
 
 
         /* ================= FOOTER ================= */
 
         footer {
-
             text-align: center;
-
             padding: 25px;
-
             color: #666;
-
             border-top: 1px solid #222;
-
             font-size: 13px;
-
         }
 
 
@@ -729,82 +475,57 @@
         @media (max-width: 600px) {
 
             .profile {
-
                 padding-top: 35px;
-
             }
 
 
             .avatar {
-
                 width: 90px;
-
                 height: 90px;
-
             }
 
 
             .profile h1 {
-
                 font-size: 25px;
-
             }
 
 
             .hero h2 {
-
                 font-size: 27px;
-
             }
 
 
             .games {
-
                 grid-template-columns: 1fr;
-
             }
 
 
             .game-image {
-
                 height: 150px;
-
             }
 
 
             .time-box {
-
                 top: 65px;
-
                 left: 10px;
-
                 padding: 7px 10px;
-
                 min-width: 100px;
-
             }
 
 
             .time-greeting {
-
                 font-size: 10px;
-
             }
 
 
             .time-clock {
-
                 font-size: 12px;
-
             }
 
 
             .side-menu {
-
                 width: 82%;
-
                 max-width: 320px;
-
             }
 
         }
@@ -1050,24 +771,30 @@
 
     <div
         class="card"
-        data-name="blox fruits"
+        data-name="steal an egg"
     >
 
         <div class="game-image">
-            🍎
+
+            <!-- 🔴 THAY LINK ẢNH BLOX FRUITS Ở ĐÂY -->
+
+            <img
+                src="https://i.postimg.cc/jSyMdwF1/IMG-1993.jpg"
+                alt="Steal An Egg"
+            >
+
         </div>
 
 
         <div class="card-content">
 
             <h2>
-                Blox Fruits
+                Steal An Egg
             </h2>
 
 
             <p>
-                Auto Farm, Auto Level,
-                Race V4 and more.
+                Auto Farm, Auto Sell and more.
             </p>
 
 
@@ -1078,7 +805,7 @@
 
             <a
                 class="get-script"
-                href="https://tuscript.blogspot.com/blox-fruits"
+                href="https://tuantuscript.blogspot.com/2026/08/steal-egg-script.html?m=1"
                 target="_blank"
                 rel="noopener"
             >
@@ -1094,24 +821,30 @@
 
     <div
         class="card"
-        data-name="greedy growers"
+        data-name="steal an egg"
     >
 
         <div class="game-image">
-            🌱
+
+            <!-- 🟢 THAY LINK ẢNH GREEDY GROWERS Ở ĐÂY -->
+
+            <img
+                src="https://i.postimg.cc/XvBf281t/IMG-1985.jpg"
+                alt="Steal An Egg"
+            >
+
         </div>
 
 
         <div class="card-content">
 
             <h2>
-                Greedy Growers
+                Steal An Egg
             </h2>
 
 
             <p>
-                Auto Plant, Auto Sell,
-                Lightning Alert and more.
+                Auto Collect, Auto Sell & More
             </p>
 
 
@@ -1122,7 +855,7 @@
 
             <a
                 class="get-script"
-                href="https://tuscript.blogspot.com/greedy-growers"
+                href="https://tuantuscript.blogspot.com/2026/08/script-steal-egg.html?m=1"
                 target="_blank"
                 rel="noopener"
             >
@@ -1142,7 +875,14 @@
     >
 
         <div class="game-image">
-            🥚
+
+            <!-- 🟡 THAY LINK ẢNH STEAL AN EGG Ở ĐÂY -->
+
+            <img
+                src="THAY-LINK-ANH-STEAL-AN-EGG"
+                alt="Steal An Egg"
+            >
+
         </div>
 
 
@@ -1496,7 +1236,7 @@ function updateTime() {
 
     else if (hour >= 18 && hour < 22) {
 
-        greeting = "⛅️ Good Evening";
+        greeting = "⛅ Good Evening";
 
     }
 
