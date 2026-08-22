@@ -14,7 +14,6 @@
 
     <title>TuScript - Roblox Scripts</title>
 
-
     <style>
 
         * {
@@ -23,12 +22,14 @@
             padding: 0;
         }
 
-
         body {
             font-family: Arial, sans-serif;
             background: #0b0b0f;
             color: white;
             min-height: 100vh;
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
         }
 
 
@@ -56,13 +57,11 @@
                 visibility 0.5s ease;
         }
 
-
         #loadingScreen.hide {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
-
 
         .loader-logo {
             font-size: 34px;
@@ -70,11 +69,9 @@
             margin-bottom: 25px;
         }
 
-
         .loader-logo span {
             color: #7c5cff;
         }
-
 
         .loader {
             width: 50px;
@@ -92,17 +89,12 @@
                 0 0 25px rgba(124, 92, 255, 0.25);
         }
 
-
         .loading-text {
             margin-top: 18px;
-
             color: #888;
-
             font-size: 13px;
-
             letter-spacing: 0.5px;
         }
-
 
         .loading-bar {
             width: 180px;
@@ -117,7 +109,6 @@
             overflow: hidden;
         }
 
-
         .loading-progress {
             width: 0%;
             height: 100%;
@@ -130,15 +121,11 @@
                 loadingProgress 1.5s ease forwards;
         }
 
-
         @keyframes spin {
-
             to {
                 transform: rotate(360deg);
             }
-
         }
-
 
         @keyframes loadingProgress {
 
@@ -179,14 +166,16 @@
             backdrop-filter: blur(10px);
 
             z-index: 10;
-        }
 
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
 
         .logo {
             font-size: 22px;
             font-weight: 800;
         }
-
 
         .logo span {
             color: #7c5cff;
@@ -214,7 +203,6 @@
 
             transition: 0.2s;
         }
-
 
         .menu:hover {
             background: #18181f;
@@ -250,8 +238,11 @@
             z-index: 20;
 
             min-width: 105px;
-        }
 
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
 
         .time-greeting {
 
@@ -263,7 +254,6 @@
 
             margin-bottom: 3px;
         }
-
 
         .time-clock {
 
@@ -299,14 +289,12 @@
             z-index: 99;
         }
 
-
         .menu-overlay.active {
 
             opacity: 1;
 
             visibility: visible;
         }
-
 
         .side-menu {
 
@@ -330,7 +318,9 @@
             transform: translateX(100%);
 
             transition:
-                transform 0.3s ease;
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
 
             z-index: 100;
 
@@ -338,7 +328,6 @@
 
             overflow-y: auto;
         }
-
 
         .side-menu.active {
 
@@ -361,7 +350,6 @@
             padding-bottom: 18px;
         }
 
-
         .side-logo {
 
             font-size: 20px;
@@ -369,12 +357,10 @@
             font-weight: 800;
         }
 
-
         .side-logo span {
 
             color: #7c5cff;
         }
-
 
         .close-menu {
 
@@ -399,7 +385,6 @@
             transition: 0.2s;
         }
 
-
         .close-menu:hover {
 
             background: #1c1c24;
@@ -417,6 +402,9 @@
             background: #29292f;
 
             margin: 5px 0 12px;
+
+            transition:
+                background 0.3s ease;
         }
 
 
@@ -447,7 +435,6 @@
             transition: 0.2s;
         }
 
-
         .menu-item:hover {
 
             background: #1c1c25;
@@ -458,7 +445,6 @@
                 translateX(3px);
         }
 
-
         .menu-item span:first-child {
 
             width: 24px;
@@ -466,6 +452,77 @@
             text-align: center;
 
             font-size: 18px;
+        }
+
+
+        /* =====================================================
+           THEME BUTTON
+        ===================================================== */
+
+        .theme-button {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            gap: 10px;
+
+            width: 100%;
+
+            padding: 13px 12px;
+
+            margin: 4px 0;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background: transparent;
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition: 0.2s;
+        }
+
+        .theme-button:hover {
+
+            background: #1c1c25;
+
+            color: white;
+        }
+
+        .theme-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+        .theme-icon {
+
+            width: 24px;
+
+            text-align: center;
+
+            font-size: 18px;
+        }
+
+        .theme-status {
+
+            font-size: 11px;
+
+            color: #888;
         }
 
 
@@ -478,7 +535,6 @@
             padding:
                 45px 20px 20px;
         }
-
 
         .avatar {
 
@@ -500,7 +556,6 @@
             margin-bottom: 15px;
         }
 
-
         .profile h1 {
 
             font-size: 28px;
@@ -508,12 +563,10 @@
             margin-bottom: 6px;
         }
 
-
         .profile h1 span {
 
             color: #7c5cff;
         }
-
 
         .profile p {
 
@@ -533,7 +586,6 @@
                 25px 20px 20px;
         }
 
-
         .hero h2 {
 
             font-size: 30px;
@@ -541,12 +593,10 @@
             margin-bottom: 10px;
         }
 
-
         .hero h2 span {
 
             color: #7c5cff;
         }
-
 
         .hero p {
 
@@ -571,7 +621,6 @@
                 0 20px;
         }
 
-
         .search-box input {
 
             width: 100%;
@@ -591,8 +640,12 @@
             font-size: 15px;
 
             outline: none;
-        }
 
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease;
+        }
 
         .search-box input:focus {
 
@@ -638,9 +691,11 @@
 
             overflow: hidden;
 
-            transition: 0.2s;
+            transition:
+                0.2s,
+                background 0.3s ease,
+                border-color 0.3s ease;
         }
-
 
         .card:hover {
 
@@ -677,7 +732,6 @@
             overflow: hidden;
         }
 
-
         .game-image img {
 
             width: 100%;
@@ -689,12 +743,10 @@
             display: block;
         }
 
-
         .card-content {
 
             padding: 18px;
         }
-
 
         .card h2 {
 
@@ -702,7 +754,6 @@
 
             margin-bottom: 8px;
         }
-
 
         .card p {
 
@@ -766,7 +817,6 @@
             transition: 0.2s;
         }
 
-
         .get-script:hover {
 
             background:
@@ -805,10 +855,180 @@
                 1px solid #222;
 
             font-size: 13px;
+
+            transition:
+                color 0.3s ease,
+                border-color 0.3s ease;
         }
 
 
-        /* ================= MOBILE ================= */
+        /* =====================================================
+           LIGHT MODE
+        ===================================================== */
+
+        body.light-mode {
+
+            background: #f5f5f7;
+
+            color: #15151b;
+        }
+
+        body.light-mode header {
+
+            background:
+                rgba(255, 255, 255, 0.95);
+
+            border-bottom-color:
+                #e5e5e8;
+        }
+
+        body.light-mode .menu {
+
+            color: #555;
+        }
+
+        body.light-mode .menu:hover {
+
+            background: #e8e8ed;
+
+            color: #111;
+        }
+
+        body.light-mode .time-box {
+
+            background:
+                rgba(255, 255, 255, 0.95);
+
+            border-color: #ddd;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.12);
+        }
+
+        body.light-mode .time-clock {
+
+            color: #666;
+        }
+
+        body.light-mode .side-menu {
+
+            background: #ffffff;
+
+            border-left-color:
+                #e5e5e8;
+
+            box-shadow:
+                -10px 0 40px
+                rgba(0, 0, 0, 0.15);
+        }
+
+        body.light-mode .close-menu {
+
+            color: #666;
+        }
+
+        body.light-mode .close-menu:hover {
+
+            background: #eeeeF2;
+
+            color: #111;
+        }
+
+        body.light-mode .menu-line {
+
+            background: #e5e5e8;
+        }
+
+        body.light-mode .menu-item {
+
+            color: #333;
+        }
+
+        body.light-mode .menu-item:hover {
+
+            background: #f0f0f4;
+
+            color: #111;
+        }
+
+        body.light-mode .theme-button {
+
+            color: #333;
+        }
+
+        body.light-mode .theme-button:hover {
+
+            background: #f0f0f4;
+
+            color: #111;
+        }
+
+        body.light-mode .profile p,
+        body.light-mode .hero p {
+
+            color: #666;
+        }
+
+        body.light-mode .search-box input {
+
+            background: #ffffff;
+
+            color: #111;
+
+            border-color: #ddd;
+        }
+
+        body.light-mode
+        .search-box input::placeholder {
+
+            color: #888;
+        }
+
+        body.light-mode .card {
+
+            background: #ffffff;
+
+            border-color: #ddd;
+        }
+
+        body.light-mode .card p {
+
+            color: #666;
+        }
+
+        body.light-mode .tag {
+
+            background: #eeeaff;
+
+            color: #6848ed;
+        }
+
+        body.light-mode footer {
+
+            color: #777;
+
+            border-top-color: #ddd;
+        }
+
+        body.light-mode #exploits > div,
+        body.light-mode #about > div {
+
+            background: #ffffff !important;
+
+            border-color: #ddd !important;
+        }
+
+        body.light-mode #exploits p,
+        body.light-mode #about p {
+
+            color: #666 !important;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 600px) {
 
@@ -818,7 +1038,6 @@
                     35px;
             }
 
-
             .avatar {
 
                 width: 90px;
@@ -826,18 +1045,15 @@
                 height: 90px;
             }
 
-
             .profile h1 {
 
                 font-size: 25px;
             }
 
-
             .hero h2 {
 
                 font-size: 27px;
             }
-
 
             .games {
 
@@ -845,12 +1061,10 @@
                     1fr;
             }
 
-
             .game-image {
 
                 height: 150px;
             }
-
 
             .time-box {
 
@@ -864,18 +1078,15 @@
                 min-width: 100px;
             }
 
-
             .time-greeting {
 
                 font-size: 10px;
             }
 
-
             .time-clock {
 
                 font-size: 12px;
             }
-
 
             .side-menu {
 
@@ -883,7 +1094,6 @@
 
                 max-width: 320px;
             }
-
 
             .loader-logo {
 
@@ -907,14 +1117,21 @@
 <div id="loadingScreen">
 
     <div class="loader-logo">
+
         Tu<span>Script</span>
+
     </div>
+
 
     <div class="loader"></div>
 
+
     <div class="loading-text">
+
         Loading...
+
     </div>
+
 
     <div class="loading-bar">
 
@@ -995,7 +1212,7 @@
         onclick="goHome()"
     >
 
-        <span></span>
+        <span>🏠</span>
 
         <span>Home</span>
 
@@ -1010,7 +1227,7 @@
         onclick="closeMenu()"
     >
 
-        <span></span>
+        <span>📜</span>
 
         <span>Scripts</span>
 
@@ -1025,7 +1242,7 @@
         onclick="closeMenu()"
     >
 
-        <span></span>
+        <span>💣</span>
 
         <span>Exploits</span>
 
@@ -1040,7 +1257,7 @@
         onclick="openSearch()"
     >
 
-        <span></span>
+        <span>🔎</span>
 
         <span>Search</span>
 
@@ -1056,7 +1273,7 @@
         class="menu-item"
     >
 
-        <span></span>
+        <span>▶️</span>
 
         <span>YouTube</span>
 
@@ -1071,7 +1288,7 @@
         onclick="closeMenu()"
     >
 
-        <span></span>
+        <span>💬</span>
 
         <span>Discord</span>
 
@@ -1086,11 +1303,52 @@
         onclick="showAbout()"
     >
 
-        <span></span>
+        <span>ℹ️</span>
 
         <span>About</span>
 
     </a>
+
+
+    <!-- THEME -->
+
+    <button
+        class="theme-button"
+        id="themeButton"
+        onclick="toggleTheme()"
+    >
+
+        <div class="theme-left">
+
+            <span
+                class="theme-icon"
+                id="themeIcon"
+            >
+
+                🌙
+
+            </span>
+
+
+            <span id="themeText">
+
+                Dark Mode
+
+            </span>
+
+        </div>
+
+
+        <span
+            class="theme-status"
+            id="themeStatus"
+        >
+
+            ON
+
+        </span>
+
+    </button>
 
 </div>
 
@@ -1196,7 +1454,8 @@
     id="games"
 >
 
-    <!-- ================= STEAL AN EGG 2 ================= -->
+
+    <!-- ================= STEAL AN EGG ================= -->
 
     <div
         class="card"
@@ -1216,72 +1475,29 @@
         <div class="card-content">
 
             <h2>
+
                 Steal An Egg
+
             </h2>
 
 
             <p>
+
                 Auto Collect Egg, Auto Place Egg & More
+
             </p>
 
 
             <span class="tag">
+
                 NO KEY
+
             </span>
 
 
             <a
                 class="get-script"
                 href="https://tuantuscript.blogspot.com/2026/08/steal-egg.html?m=1"
-                target="_blank"
-                rel="noopener"
-            >
-
-                GET SCRIPT →
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- ================= STEAL AN EGG ================= -->
-
-    <div
-        class="card"
-        data-name="steal an egg"
-    >
-
-        <div class="game-image">
-
-            <img
-                src="https://i.postimg.cc/jSyMdwF1/IMG-1993.jpg"
-                alt="Steal An Egg"
-            >
-
-        </div>
-
-
-        <div class="card-content">
-
-            <h2>
-                Steal An Egg
-            </h2>
-
-
-            <p>
-                Auto Farm, Auto Sell and more.
-            </p>
-
-
-            <span class="tag">
-                NO KEY
-            </span>
-
-
-            <a
-                class="get-script"
-                href="https://tuantuscript.blogspot.com/2026/08/steal-egg-script.html?m=1"
                 target="_blank"
                 rel="noopener"
             >
@@ -1305,6 +1521,62 @@
         <div class="game-image">
 
             <img
+                src="https://i.postimg.cc/jSyMdwF1/IMG-1993.jpg"
+                alt="Steal An Egg"
+            >
+
+        </div>
+
+
+        <div class="card-content">
+
+            <h2>
+
+                Steal An Egg
+
+            </h2>
+
+
+            <p>
+
+                Auto Farm, Auto Sell and more.
+
+            </p>
+
+
+            <span class="tag">
+
+                NO KEY
+
+            </span>
+
+
+            <a
+                class="get-script"
+                href="https://tuantuscript.blogspot.com/2026/08/steal-egg-script.html?m=1"
+                target="_blank"
+                rel="noopener"
+            >
+
+                GET SCRIPT →
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= STEAL AN EGG 3 ================= -->
+
+    <div
+        class="card"
+        data-name="steal an egg"
+    >
+
+        <div class="game-image">
+
+            <img
                 src="https://i.postimg.cc/XvBf281t/IMG-1985.jpg"
                 alt="Steal An Egg"
             >
@@ -1315,17 +1587,23 @@
         <div class="card-content">
 
             <h2>
+
                 Steal An Egg
+
             </h2>
 
 
             <p>
+
                 Auto Collect, Auto Sell & More
+
             </p>
 
 
             <span class="tag">
+
                 NO KEY
+
             </span>
 
 
@@ -1365,17 +1643,23 @@
         <div class="card-content">
 
             <h2>
+
                 Greedy Growers
+
             </h2>
 
 
             <p>
+
                 Dự Đoán Sét & More
+
             </p>
 
 
             <span class="tag">
+
                 NO KEY
+
             </span>
 
 
@@ -1415,17 +1699,23 @@
         <div class="card-content">
 
             <h2>
+
                 Blox Fruits
+
             </h2>
 
 
             <p>
+
                 Auto Farm Level, Auto Get All Item & More
+
             </p>
 
 
             <span class="tag">
+
                 FREE KEY
+
             </span>
 
 
@@ -1483,7 +1773,7 @@
 
         <h2 style="margin-bottom:10px;">
 
-             Exploits
+            💣 Exploits
 
         </h2>
 
@@ -1528,7 +1818,7 @@
 
         <h2 style="margin-bottom:10px;">
 
-             About TuScript
+            ℹ️ About TuScript
 
         </h2>
 
@@ -1571,6 +1861,116 @@
 
 
 /* =====================================================
+   THEME
+===================================================== */
+
+const savedTheme =
+    localStorage.getItem(
+        "tuscript-theme"
+    );
+
+
+if (savedTheme === "light") {
+
+    document.body.classList.add(
+        "light-mode"
+    );
+
+}
+
+
+function updateThemeUI() {
+
+    const icon =
+        document.getElementById(
+            "themeIcon"
+        );
+
+    const text =
+        document.getElementById(
+            "themeText"
+        );
+
+    const status =
+        document.getElementById(
+            "themeStatus"
+        );
+
+
+    if (
+        document.body.classList.contains(
+            "light-mode"
+        )
+    ) {
+
+        icon.textContent = "☀️";
+
+        text.textContent =
+            "Light Mode";
+
+        status.textContent =
+            "ON";
+
+    }
+
+    else {
+
+        icon.textContent = "🌙";
+
+        text.textContent =
+            "Dark Mode";
+
+        status.textContent =
+            "ON";
+
+    }
+
+}
+
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "light-mode"
+    );
+
+
+    const isLight =
+        document.body.classList.contains(
+            "light-mode"
+        );
+
+
+    localStorage.setItem(
+
+        "tuscript-theme",
+
+        isLight
+            ? "light"
+            : "dark"
+
+    );
+
+
+    updateThemeUI();
+
+}
+
+
+window.addEventListener(
+
+    "DOMContentLoaded",
+
+    function() {
+
+        updateThemeUI();
+
+    }
+
+);
+
+
+/* =====================================================
    SEARCH
 ===================================================== */
 
@@ -1585,7 +1985,9 @@ function searchGames() {
 
 
     const cards =
-        document.querySelectorAll(".card");
+        document.querySelectorAll(
+            ".card"
+        );
 
 
     let found = 0;
@@ -1595,18 +1997,24 @@ function searchGames() {
 
         const name =
             card
-            .getAttribute("data-name")
+            .getAttribute(
+                "data-name"
+            )
             .toLowerCase();
 
 
-        if (name.includes(search)) {
+        if (
+            name.includes(search)
+        ) {
 
             card.style.display =
                 "block";
 
             found++;
 
-        } else {
+        }
+
+        else {
 
             card.style.display =
                 "none";
@@ -1617,8 +2025,11 @@ function searchGames() {
 
 
     document
-        .getElementById("noResults")
+        .getElementById(
+            "noResults"
+        )
         .style.display =
+
             found === 0
                 ? "block"
                 : "none";
@@ -1633,13 +2044,17 @@ function searchGames() {
 function toggleMenu() {
 
     document
-        .getElementById("sideMenu")
+        .getElementById(
+            "sideMenu"
+        )
         .classList
         .toggle("active");
 
 
     document
-        .getElementById("menuOverlay")
+        .getElementById(
+            "menuOverlay"
+        )
         .classList
         .toggle("active");
 
@@ -1649,13 +2064,17 @@ function toggleMenu() {
 function closeMenu() {
 
     document
-        .getElementById("sideMenu")
+        .getElementById(
+            "sideMenu"
+        )
         .classList
         .remove("active");
 
 
     document
-        .getElementById("menuOverlay")
+        .getElementById(
+            "menuOverlay"
+        )
         .classList
         .remove("active");
 
@@ -1690,8 +2109,9 @@ function openSearch() {
     setTimeout(() => {
 
         const search =
-            document
-            .getElementById("search");
+            document.getElementById(
+                "search"
+            );
 
 
         search.scrollIntoView({
@@ -1724,7 +2144,9 @@ function showAbout() {
     setTimeout(() => {
 
         document
-            .getElementById("about")
+            .getElementById(
+                "about"
+            )
             .scrollIntoView({
 
                 behavior: "smooth",
@@ -1741,16 +2163,21 @@ function showAbout() {
 /* ================= ESC ================= */
 
 document.addEventListener(
+
     "keydown",
+
     function(event) {
 
-        if (event.key === "Escape") {
+        if (
+            event.key === "Escape"
+        ) {
 
             closeMenu();
 
         }
 
     }
+
 );
 
 
@@ -1810,7 +2237,9 @@ function updateTime() {
 
 
     document
-        .getElementById("greeting")
+        .getElementById(
+            "greeting"
+        )
         .textContent =
             greeting;
 
@@ -1841,7 +2270,9 @@ function updateTime() {
 
 
     document
-        .getElementById("clock")
+        .getElementById(
+            "clock"
+        )
         .textContent =
             time;
 
@@ -1852,8 +2283,11 @@ updateTime();
 
 
 setInterval(
+
     updateTime,
+
     1000
+
 );
 
 
@@ -1902,9 +2336,12 @@ function playRandomSong() {
     do {
 
         nextSong =
+
             Math.floor(
+
                 Math.random() *
                 playlist.length
+
             );
 
     }
@@ -1922,7 +2359,9 @@ function playRandomSong() {
 
 
     music.src =
-        playlist[currentSong];
+        playlist[
+            currentSong
+        ];
 
 
     music.play().catch(() => {
@@ -1964,7 +2403,9 @@ setTimeout(() => {
 
 function startMusic() {
 
-    if (music.paused) {
+    if (
+        music.paused
+    ) {
 
         music.play().catch(
             () => {}
@@ -1998,7 +2439,9 @@ document.addEventListener(
 ===================================================== */
 
 window.addEventListener(
+
     "load",
+
     function() {
 
         setTimeout(() => {
@@ -2016,6 +2459,7 @@ window.addEventListener(
         }, 1500);
 
     }
+
 );
 
 </script>
